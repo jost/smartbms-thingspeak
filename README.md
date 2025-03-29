@@ -36,3 +36,12 @@ systemctl status smartbms
 ```
 The errors should be self explanatory. If there are no errors, you should only see the message that the values are updated every minute.
 If you get any strange errors, please plug out the USB from the Raspberry Pi, plug it back in and reboot.
+
+# Local Viewer
+```
+sudo service smartbms stop
+cd /home/js/smartbms_thingspeak
+source .venv/bin/activate
+python smartbms_local_viewer.py -p /dev/ttyUSB0
+sudo service smartbms start
+```
