@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTALL_DIR="/home/pi/smartbms_thingspeak"
+INSTALL_DIR="/home/js/smartbms_thingspeak"
 
 if [ "$(whoami)" != root ]
 then
@@ -27,7 +27,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 	python3 -m venv ${INSTALL_DIR}/.venv
 	source ${INSTALL_DIR}/.venv/bin/activate
 	python3 -m pip install -e "${INSTALL_DIR}"
-	
+
 	echo -e "\r\n"
 	read -p "Enter the port the 123\\SmartBMS is connected to [leave empty for /dev/ttyUSB0]: " SERIAL_PORT
 	SERIAL_PORT=${SERIAL_PORT:-/dev/ttyUSB0}
