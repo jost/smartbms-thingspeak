@@ -38,10 +38,22 @@ The errors should be self explanatory. If there are no errors, you should only s
 If you get any strange errors, please plug out the USB from the Raspberry Pi, plug it back in and reboot.
 
 # Local Viewer
+You need to stop the default service to be able to access the port without conflicts.
+
 ```
 sudo service smartbms stop
 cd /home/js/smartbms_thingspeak
 source .venv/bin/activate
 python smartbms_local_viewer.py -p /dev/ttyUSB0
 sudo service smartbms start
+```
+
+# CSV Logger
+Meant to run in the foreground in a persistent terminal session using tmux etc.
+
+```
+sudo service smartbms stop
+cd /home/js/smartbms_thingspeak
+source .venv/bin/activate
+python smartbms_csv_logger.py
 ```
